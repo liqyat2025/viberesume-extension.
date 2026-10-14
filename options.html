@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VibeResume 资料设置</title><link rel="stylesheet" href="ui.css"></head>
+<body class="options"><main>
+  <header><div class="brand"><span class="logo">V</span><div><h1>我的网申资料</h1><p>填写一次，在招聘网站重复使用</p></div></div><span class="local">仅本地存储</span></header>
+  <form id="profileForm">
+    <section><h2>基本信息</h2><div class="grid">
+      <label>姓名<input name="fullName" autocomplete="name"></label><label>手机号<input name="phone" autocomplete="tel"></label>
+      <label>邮箱<input name="email" type="email" autocomplete="email"></label><label>性别<select name="gender"><option value="">请选择</option><option>男</option><option>女</option><option>其他</option><option>不便透露</option></select></label>
+      <label>出生日期<input name="birthDate" type="date"></label><label>现居城市<input name="city" autocomplete="address-level2"></label>
+      <label>民族<input name="ethnicity" placeholder="例如：汉族"></label><label>籍贯<input name="nativePlace" placeholder="例如：江苏南京"></label>
+      <label>政治面貌<select name="politicalStatus"><option value="">请选择</option><option>中共党员</option><option>中共预备党员</option><option>共青团员</option><option>群众</option><option>民主党派</option><option>无党派人士</option><option>其他</option></select></label>
+      <label>婚姻状况<select name="maritalStatus"><option value="">请选择</option><option>未婚</option><option>已婚</option><option>离异</option><option>丧偶</option><option>不便透露</option></select></label><label>国籍<select name="nationality"><option value="">请选择</option><option>中国</option><option>中国香港</option><option>中国澳门</option><option>中国台湾</option><option>其他</option></select></label>
+      <label>户籍所在地<input name="householdRegistration"></label><label>证件类型<select name="idType"><option value="">请选择</option><option>居民身份证</option><option>护照</option><option>港澳居民来往内地通行证</option><option>台湾居民来往大陆通行证</option><option>永久居留证</option><option>其他</option></select></label>
+      <label>微信<input name="wechat"></label><label>QQ<input name="qq"></label>
+      <label class="wide">联系地址<input name="address" autocomplete="street-address"></label><label class="wide">身份证号（可留空）<input name="idNumber"></label>
+    </div></section>
+    <section><h2>求职信息</h2><div class="grid">
+      <label>期望职位<input name="jobTitle"></label><label>期望薪资<input name="salary"></label><label>可入职时间<input name="availableDate" type="date"></label>
+      <label>求职状态<select name="jobStatus"><option value="">请选择</option><option>在校-寻找实习</option><option>在校-考虑机会</option><option>离校-随时到岗</option><option>在职-考虑机会</option><option>在职-月内到岗</option><option>暂无求职计划</option></select></label><label>工作年限<select name="workYears"><option value="">请选择</option><option>应届毕业生</option><option>无工作经验</option><option>1年以内</option><option>1-3年</option><option>3-5年</option><option>5-10年</option><option>10年以上</option></select></label>
+      <label>工作性质<select name="workNature"><option value="">请选择</option><option>全职</option><option>实习</option><option>兼职</option><option>校园招聘</option><option>社会招聘</option></select></label><label>期望工作城市<input name="expectedCity"></label>
+      <label>期望行业<input name="expectedIndustry"></label>
+    </div></section>
+    <section><h2>语言能力</h2><div class="grid">
+      <label>英语成绩（其他考试）<input name="englishScore" placeholder="例如：雅思 7.0 / 托福 100"></label>
+      <label>英语六级（CET-6）分数<input name="cet6Score" type="number" min="0" max="710" inputmode="numeric" placeholder="例如：520"></label>
+    </div></section>
+    <section><div class="section-head"><h2>教育经历</h2><button id="addEducation" type="button">＋ 添加教育经历</button></div>
+      <div id="educationList"></div>
+    </section>
+    <section><div class="section-head"><h2>实习经历</h2><button id="addInternship" type="button">＋ 添加实习经历</button></div>
+      <div id="internshipList"></div>
+      <p class="field-hint">自动填写常见实习字段；网站的动态经历列表需先手动添加对应条数。</p>
+    </section>
+    <section><div class="section-head"><h2>项目经历</h2><button id="addProjects" type="button">＋ 添加项目</button></div><div id="projectsList"></div></section>
+    <section><div class="section-head"><h2>校园经历</h2><button id="addCampusExperiences" type="button">＋ 添加校园经历</button></div><div id="campusExperiencesList"></div></section>
+    <section><div class="section-head"><h2>语言能力</h2><button id="addLanguages" type="button">＋ 添加语言</button></div><div id="languagesList"></div></section>
+    <section><div class="section-head"><h2>专业技能</h2><button id="addSkills" type="button">＋ 添加技能</button></div><div id="skillsList"></div></section>
+    <section><div class="section-head"><h2>证书与资格</h2><button id="addCertificates" type="button">＋ 添加证书</button></div><div id="certificatesList"></div></section>
+    <section><div class="section-head"><h2>奖项与荣誉</h2><button id="addAwards" type="button">＋ 添加奖项</button></div><div id="awardsList"></div></section>
+    <section><div class="section-head"><h2>家庭关系</h2><button id="addFamilyMembers" type="button">＋ 添加家庭成员</button></div><div id="familyMembersList"></div><p class="field-hint">家庭信息比较敏感，可按网申实际要求选择性填写。</p></section>
+    <section><h2>个人链接</h2><div class="grid">
+      <label>GitHub<input name="github" type="url"></label><label>个人主页 / 作品集<input name="website" type="url"></label>
+      <label>领英<input name="linkedin" type="url"></label>
+    </div></section>
+    <section><h2>自我介绍</h2><div class="grid">
+      <label class="wide">个人介绍 / 自我评价<textarea name="summary" rows="8" maxlength="5000" placeholder="介绍你的专业背景、核心能力、代表经历和求职方向。填写网申时会匹配“自我介绍、个人优势、个人评价、职业概述”等字段。"></textarea><span class="field-hint">建议准备 200～500 字，自动填写后再根据岗位调整。</span></label>
+    </div></section>
+    <div class="actions"><button class="primary" type="submit">保存资料</button><button id="exportData" type="button">导出备份</button><label class="import">导入备份<input id="importData" type="file" accept="application/json"></label><span id="saveState" role="status"></span></div>
+  </form>
+</main>
+<template id="educationTemplate"><div class="education-card">
+  <div class="education-title"><strong>教育经历 <span class="education-number"></span></strong><button class="danger remove-education" type="button">删除</button></div>
+  <div class="grid">
+    <label>学历阶段<select data-field="degree"><option value="">请选择</option><option>本科</option><option>硕士研究生</option><option>博士研究生</option><option>专科</option><option>高中</option></select></label>
+    <label>学校<input data-field="school"></label><label>专业<input data-field="major"></label>
+    <label class="wide">研究方向<input data-field="researchDirection" placeholder="例如：大语言模型应用 / 计算机视觉"></label>
+    <label>入学时间<select data-field="startDate" data-month-select><option value="">请选择</option></select></label><label>毕业时间<select data-field="graduationDate" data-month-select data-future-years="8"><option value="">请选择</option></select></label>
+    <label>学位<select data-field="academicDegree"><option value="">请选择</option><option>无</option><option>学士</option><option>硕士</option><option>博士</option><option>双学士</option></select></label><label>GPA<input data-field="gpa"></label>
+    <label>成绩排名<select data-field="classRank"><option value="">请选择</option><option>前 5%</option><option>前 10%</option><option>前 20%</option><option>前 30%</option><option>前 50%</option><option>50% 以后</option></select></label><label class="wide">主修课程<input data-field="courses" placeholder="多门课程可用顿号分隔"></label>
+  </div>
+</div></template>
+<template id="internshipTemplate"><div class="education-card">
+  <div class="education-title"><strong>实习经历 <span class="internship-number"></span></strong><button class="danger remove-internship" type="button">删除</button></div>
+  <div class="grid">
+    <label>公司名称<input data-field="company"></label><label>实习岗位<input data-field="position"></label>
+    <label>开始时间<select data-field="startDate" data-month-select><option value="">请选择</option></select></label><label>结束时间<select data-field="endDate" data-month-select data-allow-present><option value="">请选择</option></select></label>
+    <label class="wide">工作内容 / 主要成果<textarea data-field="description" rows="5"></textarea></label>
+  </div>
+</div></template>
+<template id="projectsTemplate"><div class="education-card"><div class="education-title"><strong>项目经历</strong><button class="danger" data-remove type="button">删除</button></div><div class="grid"><label>项目名称<input data-field="name"></label><label>担任角色<input data-field="role"></label><label>开始时间<select data-field="startDate" data-month-select><option value="">请选择</option></select></label><label>结束时间<select data-field="endDate" data-month-select data-allow-present><option value="">请选择</option></select></label><label class="wide">项目描述 / 成果<textarea data-field="description" rows="5"></textarea></label></div></div></template>
+<template id="campusExperiencesTemplate"><div class="education-card"><div class="education-title"><strong>校园经历</strong><button class="danger" data-remove type="button">删除</button></div><div class="grid"><label>组织 / 社团<input data-field="organization"></label><label>职务<input data-field="role"></label><label class="wide">经历描述<textarea data-field="description" rows="4"></textarea></label></div></div></template>
+<template id="languagesTemplate"><div class="education-card"><div class="education-title"><strong>语言能力</strong><button class="danger" data-remove type="button">删除</button></div><div class="grid"><label>语种<select data-field="name"><option value="">请选择</option><option>英语</option><option>日语</option><option>韩语</option><option>法语</option><option>德语</option><option>俄语</option><option>西班牙语</option><option>其他</option></select></label><label>水平 / 熟练度<select data-field="level"><option value="">请选择</option><option>入门</option><option>一般</option><option>良好</option><option>熟练</option><option>精通</option><option>母语</option></select></label></div></div></template>
+<template id="skillsTemplate"><div class="education-card"><div class="education-title"><strong>专业技能</strong><button class="danger" data-remove type="button">删除</button></div><div class="grid"><label>技能名称<input data-field="name"></label><label>掌握程度<select data-field="level"><option value="">请选择</option><option>了解</option><option>熟悉</option><option>熟练</option><option>精通</option></select></label></div></div></template>
+<template id="certificatesTemplate"><div class="education-card"><div class="education-title"><strong>证书与资格</strong><button class="danger" data-remove type="button">删除</button></div><div class="grid"><label class="wide">证书名称<input data-field="name"></label></div></div></template>
+<template id="awardsTemplate"><div class="education-card"><div class="education-title"><strong>奖项与荣誉</strong><button class="danger" data-remove type="button">删除</button></div><div class="grid"><label class="wide">奖项 / 荣誉名称<input data-field="name"></label></div></div></template>
+<template id="familyMembersTemplate"><div class="education-card"><div class="education-title"><strong>家庭成员</strong><button class="danger" data-remove type="button">删除</button></div><div class="grid"><label>与本人关系<select data-field="relationship"><option value="">请选择</option><option>父亲</option><option>母亲</option><option>配偶</option><option>儿子</option><option>女儿</option><option>兄弟</option><option>姐妹</option><option>祖父</option><option>祖母</option><option>外祖父</option><option>外祖母</option><option>其他</option></select></label><label>姓名<input data-field="name"></label><label>联系电话<input data-field="phone" type="tel"></label><label>工作单位<input data-field="company"></label><label class="wide">职务 / 职业<input data-field="position"></label></div></div></template>
+<script src="options.js"></script></body></html>

@@ -1,0 +1,6 @@
+viberesume-profile.json
+*-profile.json
+private/
+personal/
+.DS_Store
+Thumbs.db
